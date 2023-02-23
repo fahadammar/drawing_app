@@ -3,6 +3,7 @@ package com.example.basicdrawingapp
 import android.content.Context
 import android.graphics.*
 import android.util.AttributeSet
+import android.util.TypedValue
 import android.view.MotionEvent
 import android.view.View
 
@@ -38,11 +39,15 @@ class DrawingView(context: Context, attrs: AttributeSet) : View(context, attrs) 
         drawPaint!!.strokeCap = Paint.Cap.ROUND
 
         canvasPaint = Paint(Paint.DITHER_FLAG)
-        brushSize = 20.toFloat()
     }
 
     internal inner class CustomPath(var color: Int, var brushThickness: Float) : Path() {
 
+    }
+
+    fun setSizeForBrush(newSize: Float){
+        brushSize = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, newSize, resources.displayMetrics)
+        drawPaint!!.strokeWidth = brushSize
     }
 
     // it is called when the size of screen is changed or when the screen is inflated/displayed
