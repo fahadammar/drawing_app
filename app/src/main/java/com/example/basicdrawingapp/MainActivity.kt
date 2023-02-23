@@ -3,13 +3,15 @@ package com.example.basicdrawingapp
 import android.app.Dialog
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.ImageButton
+import androidx.core.view.get
 import com.example.basicdrawingapp.databinding.ActivityMainBinding
 import com.example.basicdrawingapp.databinding.DialogBrushSizeBinding
 
 class MainActivity : AppCompatActivity() {
     lateinit var binding: ActivityMainBinding
-
+    private var imageButtonCurrentPaint : ImageButton? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
@@ -18,6 +20,9 @@ class MainActivity : AppCompatActivity() {
         binding.drawingView.setSizeForBrush(20.toFloat())
 
         brushIconClick(binding.brushSizeButton, binding)
+
+        val paintColorsLinearLayout = binding.paintColors
+        imageButtonCurrentPaint = paintColorsLinearLayout[2] as ImageButton
 
     }
 
@@ -54,5 +59,9 @@ class MainActivity : AppCompatActivity() {
             mainBinding.drawingView.setSizeForBrush(30.toFloat())
             brushDialog.dismiss()
         }
+    }
+
+    fun paintClicked(view: View) {
+
     }
 }

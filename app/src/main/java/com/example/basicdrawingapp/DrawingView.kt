@@ -50,6 +50,11 @@ class DrawingView(context: Context, attrs: AttributeSet) : View(context, attrs) 
         drawPaint!!.strokeWidth = brushSize
     }
 
+    fun setColor(newColor : String) {
+        color = Color.parseColor(newColor)
+        drawPaint!!.color = color
+    }
+
     // it is called when the size of screen is changed or when the screen is inflated/displayed
     override fun onSizeChanged(w: Int, h: Int, oldw: Int, oldh: Int) {
         super.onSizeChanged(w, h, oldw, oldh)

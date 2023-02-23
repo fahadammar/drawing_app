@@ -3,4 +3,6 @@
     <string name="large_brush_content">Large Brush</string>
     <string name="small_brush_content">Small Brush</string>
     <string name="medium_brush_content">Medium Brush</string>
+    <string name="brush_size_image">Brush Size Image</string>
+    <string name="general_content">image</string>
 </resources>
